@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "npm run check && npm run build:bundle && node app",
+    "link": "ln -shf $(pwd)/app/libs node_modules/_libs",
+    "check": "npm i && npm run check:link && npm run check:bundle && npm run check:vendor",
+    "check:link": "if [[ ! -a node_modules/_libs ]]; then npm run link; fi",
+    "check:bundle": "if [[ ! -a public/bundle.js ]]; then npm run build:bundle; fi",
+    "check:vendor": "if [[ ! -a public/vendor.js ]]; then npm run build:vendor; fi",
+    "build": "npm run build:vendor && npm run build:bundle",
+    "build:bundle": "$(npm bin)/browserify -x _libs app/client -p [minifyify --no-map] > public/bundle.js",
+    "build:vendor": "$(npm bin)/browserify -r _libs -p [minifyify --no-map] > public/vendor.js"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "es6": true
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "browserify": "latest",
+    "minifyify": "latest",
+    "reactify": "latest"
+  },
+  "dependencies": {
+    "connect-slashes": "latest",
+    "express": "latest",
+    "lodash": "latest",
+    "node-jsx": "latest",
+    "immutable": "latest",
+    "react": "latest",
+    "react-router": "latest",
+    "reflux": "latest"
+  }
+}
