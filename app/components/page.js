@@ -1,4 +1,4 @@
-var {React, Router} = require('_libs');
+var {React, Router, Reflux} = require('_libs');
 var {PureRenderMixin} = React.addons;
 var {RouteHandler} = Router;
 
@@ -6,7 +6,7 @@ var {RouteHandler} = Router;
 module.exports = React.createClass({
 	mixins: [PureRenderMixin],
 	render: function(){
-		var {lang, title, description, children} = this.props;
+		var {lang, title, description} = this.props;
 
 		return (
 			<html lang={lang}>
@@ -17,7 +17,9 @@ module.exports = React.createClass({
 					<script src="/vendor.js" defer />
 					<script src="/bundle.js" defer />
 				</head>
-				<body>{children}</body>
+				<body>
+					<RouteHandler />
+				</body>
 			</html>
 		);
 	}

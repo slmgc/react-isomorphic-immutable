@@ -1,20 +1,17 @@
 var {React, Router, Reflux} = require('_libs');
 var {PureRenderMixin} = React.addons;
-var {RouteHandler} = Router;
-var Page = require('./page');
-var Nav = require('./nav');
+var {Link} = Router;
+var Nav = require('./Nav');
 
 
 module.exports = React.createClass({
 	mixins: [PureRenderMixin],
 	render: function(){
-		var {page, children} = this.props;
-
 		return (
-			<Page {...page}>
+			<div className="layout">
 				<Nav />
-				{children}
-			</Page>
+				{this.props.children}
+			</div>
 		);
 	}
 });

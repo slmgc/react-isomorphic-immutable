@@ -7,7 +7,7 @@
     "check:link": "if [[ ! -a node_modules/_libs ]]; then npm run link; fi",
     "check:bundle": "if [[ ! -a public/bundle.js ]]; then npm run build:bundle; fi",
     "check:vendor": "if [[ ! -a public/vendor.js ]]; then npm run build:vendor; fi",
-    "build": "npm run build:vendor && npm run build:bundle",
+    "build": "npm run build:bundle && npm run build:vendor",
     "build:bundle": "$(npm bin)/browserify -x _libs app/client -p [minifyify --no-map] > public/bundle.js",
     "build:vendor": "$(npm bin)/browserify -r _libs -p [minifyify --no-map] > public/vendor.js"
   },

@@ -1,6 +1,6 @@
 var {React, Router} = require('_libs');
-var routes = require('./views/routes');
+var Routes = require('./components/Routes');
 
 
-Router.run(routes, Router.HistoryLocation, (Handler) =>
+Router.run(Routes, Router.HistoryLocation, (Handler) =>
 	React.render(<Handler />, document));

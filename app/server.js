@@ -1,12 +1,12 @@
 require('_libs/monkey');
 var {React, Router} = require('_libs');
-var routes = require('./views/routes');
+var Routes = require('./components/Routes');
 var app = require('express')();
 
 
 app.use((req, res, next) => {
 	var router = Router.create({
-		routes: routes,
+		routes: Routes,
 		location: req.url,
 
 		// FIX: making react-router play nice with redirects
