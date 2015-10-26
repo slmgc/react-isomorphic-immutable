@@ -1,0 +1,27 @@
+$media_cache = {}
+$media_aliases = {
+	xs: '(max-width:' + ($sm - 1) + ')'
+	sm: '(min-width:' + $sm + ') and (max-width:' + ($md - 1) + ')'
+	md: '(min-width:' + $md + ') and (max-width:' + ($lg - 1) + ')'
+	lg: '(min-width:' + $lg + ') and (max-width:' + ($xl - 1) + ')'
+	xl: '(min-width:' + $xl + ')'
+}
+
+media($condition)
+	helper($condition)
+		unless $media_cache[$condition]
+			$media_cache[$condition] = ()
+		push($media_cache[$condition], block)
+
+	+helper($condition)
+		{selector() + ''}
+			{block}
+
+apply_media_cache()
+	for $media, $blocks in $media_cache
+		$media = unquote($media_aliases[$media] || $media)
+		$media = '(%s)' % $media unless match('\(', $media)
+		$media = 'only screen and %s' % $media
+		@media $media
+			for $block in $blocks
+				{$block}

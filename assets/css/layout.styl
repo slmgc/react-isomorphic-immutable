@@ -1,0 +1,24 @@
+.container
+	margin: auto
+
+	+media('sm')
+		width: $sm
+
+	+media('md')
+		width: $md
+
+	+media('lg')
+		width: $lg
+
+	+media('xl')
+		width: $lg
+
+.nav-link
+	padding: $margin
+	display: inline-block
+
+	&:hover
+		background-color: darken(white, 5)
+
+	&.active
+		background-color: darken(white, 10)
