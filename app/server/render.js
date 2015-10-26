@@ -5,7 +5,7 @@ const routes = require('app/client/routes');
 const {RoutingContext} = ReactRouter;
 
 
-module.exports = require('express')()
+export default require('express')()
 	.get('*', (req, res, next) => {
 		ReactRouter.match({
 			routes,

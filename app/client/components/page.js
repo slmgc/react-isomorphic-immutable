@@ -4,7 +4,7 @@ const PureRenderMixin = require('react-addons-pure-render-mixin');
 
 
 @mixins(PureRenderMixin)
-export default class Page extends React.Component {
+export default class extends React.Component {
 	render() {
 		const {lang, title, description, children} = this.props;
 

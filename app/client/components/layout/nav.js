@@ -5,7 +5,7 @@ const {Link} = require('react-router');
 
 
 @mixins(PureRenderMixin)
-export default class Nav extends React.Component {
+export default class extends React.Component {
 	render() {
 		return (
 			<nav className="nav">

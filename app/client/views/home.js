@@ -5,7 +5,7 @@ const Layout = require('app/client/components/layout');
 
 
 @mixins(PureRenderMixin)
-export default class Home extends React.Component {
+export default class extends React.Component {
 	render() {
 		return (
 			<Layout />

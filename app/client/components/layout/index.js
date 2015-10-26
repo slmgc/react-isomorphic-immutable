@@ -5,7 +5,7 @@ const Nav = require('app/client/components/layout/nav');
 
 
 @mixins(PureRenderMixin)
-export default class Layout extends React.Component {
+export default class extends React.Component {
 	render() {
 		return (
 			<div className="container">
