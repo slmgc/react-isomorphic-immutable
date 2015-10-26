@@ -1,11 +1,12 @@
 const React = require('react');
+const {mixins} = require('core-decorators');
 const PureRenderMixin = require('react-addons-pure-render-mixin');
 const Nav = require('app/client/components/layout/nav');
 
 
-module.exports = React.createClass({
-	mixins: [PureRenderMixin],
-	render: function() {
+@mixins(PureRenderMixin)
+export default class Layout extends React.Component {
+	render() {
 		return (
 			<div className="container">
 				<Nav />
@@ -13,4 +14,4 @@ module.exports = React.createClass({
 			</div>
 		);
 	}
-});
+}

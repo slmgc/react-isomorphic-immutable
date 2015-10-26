@@ -1,11 +1,12 @@
 const React = require('react');
+const {mixins} = require('core-decorators');
 const PureRenderMixin = require('react-addons-pure-render-mixin');
 const {Link} = require('react-router');
 
 
-module.exports = React.createClass({
-	mixins: [PureRenderMixin],
-	render: function(){
+@mixins(PureRenderMixin)
+export default class Nav extends React.Component {
+	render() {
 		return (
 			<nav className="nav">
 				<Link className="nav-link"
@@ -19,4 +20,4 @@ module.exports = React.createClass({
 			</nav>
 		);
 	}
-});
+}

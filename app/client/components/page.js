@@ -1,10 +1,11 @@
 const React = require('react');
+const {mixins} = require('core-decorators');
 const PureRenderMixin = require('react-addons-pure-render-mixin');
 
 
-module.exports = React.createClass({
-	mixins: [PureRenderMixin],
-	render: function(){
+@mixins(PureRenderMixin)
+export default class Page extends React.Component {
+	render() {
 		const {lang, title, description, children} = this.props;
 
 		return (
@@ -21,4 +22,4 @@ module.exports = React.createClass({
 			</html>
 		);
 	}
-});
+}
