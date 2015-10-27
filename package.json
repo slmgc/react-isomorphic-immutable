@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "prestart": "npm i && npm ln ./app",
-    "start": "nodemon app",
+    "start": "npm run watch &nodemon app",
     "prewatch": "if [[ ! -a public ]]; then mkdir public; fi",
     "watch": "npm run watch:css & npm run watch:js",
     "watch:css": "$(npm bin)/stylus -w --include-css assets/bundle.styl -o public",
