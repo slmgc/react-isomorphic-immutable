@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "prestart": "npm i && npm ln ./app",
-    "start": "npm run watch & nodemon app",
+    "start": "nodemon app",
     "prewatch": "if [[ ! -a public ]]; then mkdir public; fi",
     "watch": "npm run watch:css & npm run watch:js",
     "watch:css": "$(npm bin)/stylus -w --include-css assets/bundle.styl -o public",
@@ -22,21 +22,21 @@
     ]
   },
   "dependencies": {
-    "babel": "^5.8.23",
+    "babel": "^5.8.29",
     "babel-runtime": "^5.8.29",
     "babelify": "^6.4.0",
     "classnames": "^2.2.0",
     "core-decorators": "^0.8.1",
     "express": "^4.13.3",
-    "history": "^1.12.5",
+    "history": "^1.12.6",
     "lodash": "^3.10.1",
-    "nodemon": "^1.7.3",
+    "nodemon": "1.7.3",
     "react": "^0.14.0",
     "react-addons-linked-state-mixin": "^0.14.0",
     "react-addons-pure-render-mixin": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-router": "^1.0.0-rc3",
     "stylus": "^0.52.4",
-    "watchify": "^3.4.0"
+    "watchify": "^3.5.0"
   }
 }
