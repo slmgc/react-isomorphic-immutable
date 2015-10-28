@@ -12,7 +12,7 @@ export default require('express')()
 			location: req.url
 		}, (e, location, props) => {
 			if (props) {
-				res.send(ReactDOMServer.renderToString(
+				res.send('<!doctype html>' + ReactDOMServer.renderToString(
 					<RoutingContext {...props} />
 				));
 			} else if (location) {
