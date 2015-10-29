@@ -5,8 +5,13 @@ const PureRenderMixin = require('react-addons-pure-render-mixin');
 
 @mixins(PureRenderMixin)
 export default class extends React.Component {
+	static contextTypes = {
+		initState: React.PropTypes.any
+	}
+
 	render() {
 		const {lang, title, description, children} = this.props;
+		const {initState} = this.context;
 
 		return (
 			<html lang={lang}>
@@ -16,6 +21,7 @@ export default class extends React.Component {
 					<title>{title}</title>
 					<meta content={description} name="description" />
 					<link rel="stylesheet" href="/bundle.css" />
+					<script dangerouslySetInnerHTML={{__html: `window.__INIT_STATE__ = ${JSON.stringify(initState)}`}} />
 					<script defer src="/bundle.js" />
 				</head>
 				<body>{children}</body>

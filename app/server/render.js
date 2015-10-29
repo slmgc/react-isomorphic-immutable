@@ -1,8 +1,9 @@
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const ReactRouter = require('react-router');
-const routes = require('app/client/routes');
 const {RoutingContext} = ReactRouter;
+const routes = require('app/client/routes');
+const Context = require('app/client/components/context');
 
 
 export default require('express')()
@@ -13,7 +14,9 @@ export default require('express')()
 		}, (e, location, props) => {
 			if (props) {
 				res.send('<!doctype html>' + ReactDOMServer.renderToString(
-					<RoutingContext {...props} />
+					<Context initState={res.locals.initState}>
+						<RoutingContext {...props} />
+					</Context>
 				));
 			} else if (location) {
 				res.redirect(301, location.pathname + location.search);
