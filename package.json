@@ -1,12 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "prestart": "npm i && npm ln ./app",
+    "prestart": "npm i && npm ln ./app && npm run build",
     "start": "npm run watch & nodemon app",
-    "prewatch": "if [[ ! -a public ]]; then mkdir public; fi",
-    "watch": "npm run watch:css & npm run watch:js",
-    "watch:css": "$(npm bin)/stylus -w --include-css assets/bundle.styl -o public",
-    "watch:js": "$(npm bin)/watchify app/client -o public/bundle.js"
+    "prebuild": "if [[ ! -a public ]]; then mkdir public; fi",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "$(npm bin)/browserify app/client -o public/bundle.js",
+    "build:css": "$(npm bin)/stylus --include-css assets/bundle.styl -o public",
+    "watch": "npm run watch:js & npm run watch:css",
+    "watch:js": "$(npm bin)/watchify app/client -o public/bundle.js",
+    "watch:css": "$(npm bin)/gulp watch:css"
   },
   "browserify": {
     "transform": [
@@ -25,16 +28,21 @@
     "babel": "^5.8.29",
     "babel-runtime": "^5.8.29",
     "babelify": "^6.4.0",
+    "browserify": "^12.0.1",
     "classnames": "^2.2.0",
+    "connect-livereload": "^0.5.3",
     "core-decorators": "^0.8.1",
     "express": "^4.13.3",
-    "history": "^1.12.6",
+    "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-stylus": "^2.1.0",
+    "history": "^1.13.0",
     "lodash": "^3.10.1",
-    "nodemon": "1.7.3",
-    "react": "^0.14.0",
-    "react-addons-linked-state-mixin": "^0.14.0",
-    "react-addons-pure-render-mixin": "^0.14.0",
-    "react-dom": "^0.14.0",
+	"nodemon": "1.7.3",
+    "react": "0.14.0",
+    "react-addons-linked-state-mixin": "0.14.0",
+    "react-addons-pure-render-mixin": "0.14.0",
+    "react-dom": "0.14.0",
     "react-router": "^1.0.0-rc3",
     "stylus": "^0.52.4",
     "watchify": "^3.5.0"

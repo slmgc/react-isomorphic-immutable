@@ -6,6 +6,10 @@ const env = app.get('env');
 const port = process.env.SERVER_PORT || config.SERVER_PORT;
 
 
+if (env === 'development') {
+	app.use(require('connect-livereload')());
+}
+
 app
 	.use(express.static('public', {maxAge: '1y'}))
 	.use(require('app/server/render'))
