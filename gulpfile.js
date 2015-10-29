@@ -10,7 +10,6 @@ gulp
 	})
 
 	.task('build:css', () => {
-		console.log('build');
 		gulp.src('assets/bundle.styl')
 			.pipe(stylus())
 			.pipe(gulp.dest('public'))
