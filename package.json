@@ -38,7 +38,7 @@
     "gulp-stylus": "^2.1.0",
     "history": "^1.13.0",
     "lodash": "^3.10.1",
-	"nodemon": "1.7.3",
+    "nodemon": "1.7.3",
     "react": "0.14.0",
     "react-addons-linked-state-mixin": "0.14.0",
     "react-addons-pure-render-mixin": "0.14.0",
