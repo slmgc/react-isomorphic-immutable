@@ -6,7 +6,6 @@ const {APIError, wrap} = require('app/server/errors');
 module.exports = require('express')()
 	.put('/api/session', wrap(async (req, res) => {
 		const {email, password} = req.body;
-		let session = null;
 
 		try {
 			const user = (await users).findOne({
@@ -14,10 +13,11 @@ module.exports = require('express')()
 				password: md5(password)
 			});
 
-			session = {id: user.id};
-		} catch (e) {}
-
-		res.json(req.session = session);
+			res.json(req.session = {id: user.id});
+		} catch (e) {
+			req.session = null;
+			throw new APIError('Invalid email or password', 401);
+		}
 	}))
 
 	.delete('/api/session', wrap(async (req, res) => {

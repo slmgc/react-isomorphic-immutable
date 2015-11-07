@@ -6,7 +6,10 @@ const {wrap} = require('app/server/errors');
 export default require('express')()
 	.get('*', wrap(async (req, res, next) => {
 		const {id} = req.session;
-		res.locals.initState = {};
+		res.locals.initState = {
+			error: null,
+			user: null
+		};
 
 		if (id) {
 			try {

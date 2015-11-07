@@ -1,14 +1,16 @@
 const React = require('react');
+const Baobab = require('baobab');
 const ReactDOM = require('react-dom');
 const {Router} = require('react-router');
 const routes = require('app/client/routes');
-const Context = require('app/client/components/context');
+const {Root} = require('baobab-react/wrappers');
 const createBrowserHistory = require('history/lib/createBrowserHistory');
 
 
+
 ReactDOM.render(
-	<Context>
+	<Root tree={new Baobab(window.__INIT_STATE__)}>
 		<Router history={createBrowserHistory()}>{routes}</Router>
-	</Context>,
+	</Root>,
 	document
 );

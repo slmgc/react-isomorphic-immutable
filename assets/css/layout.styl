@@ -19,9 +19,27 @@
 	&.active
 		background-color: darken(white, 10)
 
-.form-field
-	margin-top: $margin
+.alert
+	margin: $margin auto
+	padding: $margin
+	color: white
+	background: lightcoral
 
 .input,
 .button
 	padding: $margin * 0.5
+
+.input
+	border: 1px solid lightgray
+
+	.form-field &
+		width: 100%
+
+.form-field
+	margin: $margin auto
+
+.auth-form
+	width: 300px
+
+	+media('xs')
+		width: auto
