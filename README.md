@@ -1,12 +1,12 @@
 React-Isomorphic-Immutable
 ==========================
 
-An isomorphic example with React 0.14, React Router 1.0, Stylus, ES6 classes /
-ES7 async / await, mixins, decorators, PureRenderMixin, live reloading,
+An isomorphic example with React 0.14, React Router 1.0, Browserify, ES6 classes
+/ ES7 async / await, mixins, decorators, PureRenderMixin, CSS live reloading,
 server-side rendering with data prefetching and immutable state with Baobab. It
-has a simple JSON REST API using LokiJS as a database, so you could play with
-it without much fuss. The database could be changed to a more production-ready
-one, like MongoDB, pretty easily.
+has a simple JSON REST API using LokiJS as a database, so you could play with it
+without much fuss. The database could be changed to a more production-ready one,
+like MongoDB, pretty easily.
 
 ### Usage
 
