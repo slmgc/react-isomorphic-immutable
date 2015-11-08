@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const md5 = require('md5');
 const {users} = require('app/server/db');
 const {APIError, wrap} = require('app/server/errors');
@@ -13,7 +14,8 @@ module.exports = require('express')()
 				password: md5(password)
 			});
 
-			res.json(req.session = {id: user.id});
+			req.session = {id: user.id};
+			res.json(_.pick(user, ['id', 'username']));
 		} catch (e) {
 			req.session = null;
 			throw new APIError('Invalid email or password', 401);

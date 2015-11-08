@@ -34,7 +34,6 @@ export default class extends React.Component {
 		const {tree} = this.context;
 		const {email, password} = this.state;
 
-		actions.error.clear(tree);
 		actions.user.signIn(tree, {email, password});
 	}
 
