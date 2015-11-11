@@ -16,16 +16,39 @@ export default class extends React.Component {
 		tree: React.PropTypes.any
 	}
 
+	componentDidMount() {
+		this.onSetPage();
+	}
+
+	componentWillUpdate() {
+		this.onSetPage();
+	}
+
+	onSetPage = () => {
+		const {tree} = this.context;
+		const user = tree.get('user');
+		actions.page.set(tree, {
+			title: user
+				? `Home - ${user.username}`
+				: 'Home'
+		});
+	}
+
+	onSignOut = () => {
+		const {tree} = this.context;
+		actions.user.signOut(tree);
+	}
+
 	render() {
 		const {user} = this.props;
-		const {tree} = this.context;
+		console.info('Home:render');
 
 		return (
 			<Layout>
 				{user
 					? <div className="form-field">
 						<button className="button"
-							onClick={actions.user.signOut.bind(this, tree)}>Sign Out</button>
+							onClick={this.onSignOut}>Sign Out</button>
 					</div>
 
 					: <LoginForm />

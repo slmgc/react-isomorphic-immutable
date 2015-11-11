@@ -12,6 +12,7 @@ const {Link} = require('react-router');
 export default class extends React.Component {
 	render() {
 		const {user} = this.props;
+		console.info('Nav:render');
 
 		return (
 			<nav className="nav clear">

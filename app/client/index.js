@@ -7,7 +7,6 @@ const {Root} = require('baobab-react/wrappers');
 const createBrowserHistory = require('history/lib/createBrowserHistory');
 
 
-
 ReactDOM.render(
 	<Root tree={new Baobab(window.__INIT_STATE__)}>
 		<Router history={createBrowserHistory()}>{routes}</Router>

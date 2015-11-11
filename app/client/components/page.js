@@ -1,19 +1,32 @@
 const React = require('react');
 const {mixins} = require('core-decorators');
+const {branch} = require('baobab-react/decorators');
 const PureRenderMixin = require('react-addons-pure-render-mixin');
 
 
+@branch({cursors: {
+	page: ['page']
+}})
 @mixins(PureRenderMixin)
 export default class extends React.Component {
 	static contextTypes = {
 		tree: React.PropTypes.any
 	}
 
+	constructor(props, context) {
+		super(props, context);
+		this.state = {
+			initState: `window.__INIT_STATE__ = ${
+				JSON.stringify(context.tree.get())
+			}`
+		};
+	}
+
 	render() {
-		const {lang, title, description, children} = this.props;
-		const initState = `window.__INIT_STATE__ = ${
-			JSON.stringify(this.context.tree.get())
-		}`;
+		const {page, children} = this.props;
+		const {lang, title, description} = page;
+		const {initState} = this.state;
+		console.info('Page:render');
 
 		return (
 			<html lang={lang}>

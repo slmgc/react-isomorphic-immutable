@@ -33,12 +33,12 @@ export default class extends React.Component {
 		e.preventDefault();
 		const {tree} = this.context;
 		const {email, password} = this.state;
-
 		actions.user.signIn(tree, {email, password});
 	}
 
 	render() {
 		const {error} = this.props;
+		console.info('LoginForm:render');
 
 		return (
 			<form className="form auth-form"

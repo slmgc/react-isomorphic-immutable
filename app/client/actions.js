@@ -1,9 +1,20 @@
 const request = require('superagent-bluebird-promise');
 const actions = {
 	error: {},
+	page: {},
 	user: {}
 };
 
+
+actions.error.set = (tree, e) => {
+	const {error} = e.body;
+	console.warn(error.message);
+	tree.set('error', error);
+};
+
+actions.error.clear = (tree) => {
+	tree.set('error', null);
+};
 
 actions.user.signIn = async (tree, {email, password}) => {
 	try {
@@ -26,14 +37,10 @@ actions.user.signOut = async (tree) => {
 	}
 };
 
-actions.error.set = (tree, e) => {
-	const {error} = e.body;
-	console.warn(error.message);
-	tree.set('error', error);
-};
-
-actions.error.clear = (tree) => {
-	tree.set('error', null);
+actions.page.set = (tree, options) => {
+	const page = Object.assign({},
+		tree.get('page'), options);
+	tree.set('page', page);
 };
 
 
