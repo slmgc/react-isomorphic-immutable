@@ -30,7 +30,6 @@ export default require('express')()
 	})
 
 	.get('/about', (req, res, next) => {
-		const {user} = res.locals.initState;
 		res.locals.initState.page.title = 'About';
 		next();
 	});
