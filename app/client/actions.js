@@ -1,4 +1,5 @@
-const request = require('superagent-bluebird-promise');
+const Promise = require('bluebird');
+const request = Promise.promisifyAll(require('superagent'));
 const actions = {
 	error: {},
 	page: {},
@@ -20,7 +21,8 @@ actions.user.signIn = async (tree, {email, password}) => {
 	try {
 		const user = (await request
 			.put('/api/session')
-			.send({email, password})).body;
+			.send({email, password})
+			.endAsync()).body;
 		tree.set('user', user);
 	} catch (e) {
 		actions.error.set(tree, e);
@@ -30,7 +32,8 @@ actions.user.signIn = async (tree, {email, password}) => {
 actions.user.signOut = async (tree) => {
 	try {
 		const user = (await request
-			.del('/api/session')).body;
+			.del('/api/session')
+			.endAsync()).body;
 		tree.set('user', user);
 	} catch (e) {
 		actions.error.set(tree, e);
