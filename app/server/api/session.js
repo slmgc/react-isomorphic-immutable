@@ -9,10 +9,13 @@ module.exports = require('express')()
 		const {email, password} = req.body;
 
 		try {
-			const user = (await users).findOne({
-				email: email.toLowerCase(),
-				password: md5(password)
-			});
+			const user = (await users).find({
+				$and: [{
+					email: email.toLowerCase()
+				}, {
+					password: md5(password)
+				}]
+			}).pop();
 
 			req.session = {id: user.id};
 			res.json(_.pick(user, ['id', 'username']));
