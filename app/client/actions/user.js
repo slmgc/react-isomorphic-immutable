@@ -1,5 +1,4 @@
-const Promise = require('bluebird');
-const request = Promise.promisifyAll(require('superagent'));
+const {request} = require('app/client/vendor');
 const actions = require('app/client/actions');
 
 

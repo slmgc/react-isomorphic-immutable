@@ -1,5 +1,4 @@
 const {React, PureRenderMixin, mixins} = require('app/client/vendor');
-const Layout = require('app/client/components/layout');
 const actions = require('app/client/actions');
 
 
@@ -9,18 +8,20 @@ export default class extends React.Component {
 		tree: React.PropTypes.any
 	}
 
-	componentDidMount() {
+	onSignOut = () => {
 		const {tree} = this.context;
-		actions.page.set(tree, {
-			title: 'About'
-		});
+		actions.user.signOut(tree);
 	}
 
 	render() {
-		console.info('About:render');
+		const {error} = this.props;
+		console.info('SignOut:render');
 
 		return (
-			<Layout />
+			<div className="form-field">
+				<button className="button"
+					onClick={this.onSignOut}>Sign Out</button>
+			</div>
 		);
 	}
 }

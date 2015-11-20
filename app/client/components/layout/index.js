@@ -1,6 +1,4 @@
-const React = require('react');
-const {mixins} = require('core-decorators');
-const PureRenderMixin = require('react-addons-pure-render-mixin');
+const {React, PureRenderMixin, mixins} = require('app/client/vendor');
 const Nav = require('app/client/components/layout/nav');
 
 

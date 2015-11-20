@@ -1,5 +1,4 @@
-const React = require('react');
-const ReactRouter = require('react-router');
+const {React, ReactRouter} = require('app/client/vendor');
 const {IndexRoute, Route, Redirect} = ReactRouter;
 
 

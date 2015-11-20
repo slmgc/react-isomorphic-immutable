@@ -1,9 +1,7 @@
-const React = require('react');
-const {mixins} = require('core-decorators');
-const {branch} = require('baobab-react/decorators');
-const PureRenderMixin = require('react-addons-pure-render-mixin');
+const {React, PureRenderMixin, mixins, branch} = require('app/client/vendor');
 const Layout = require('app/client/components/layout');
-const LoginForm = require('app/client/components/login-form');
+const SignIn = require('app/client/components/auth/signin');
+const SignOut = require('app/client/components/auth/signout');
 const actions = require('app/client/actions');
 
 
@@ -34,11 +32,6 @@ export default class extends React.Component {
 		});
 	}
 
-	onSignOut = () => {
-		const {tree} = this.context;
-		actions.user.signOut(tree);
-	}
-
 	render() {
 		const {user} = this.props;
 		console.info('Home:render');
@@ -46,12 +39,8 @@ export default class extends React.Component {
 		return (
 			<Layout>
 				{user
-					? <div className="form-field">
-						<button className="button"
-							onClick={this.onSignOut}>Sign Out</button>
-					</div>
-
-					: <LoginForm />
+					? <SignOut />
+					: <SignIn />
 				}
 			</Layout>
 		);

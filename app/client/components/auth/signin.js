@@ -1,8 +1,4 @@
-const React = require('react');
-const {mixins} = require('core-decorators');
-const {branch} = require('baobab-react/decorators');
-const PureRenderMixin = require('react-addons-pure-render-mixin');
-const LinkedStateMixin = require('react-addons-linked-state-mixin');
+const {React, PureRenderMixin, LinkedStateMixin, mixins, branch} = require('app/client/vendor');
 const actions = require('app/client/actions');
 
 
@@ -38,7 +34,7 @@ export default class extends React.Component {
 
 	render() {
 		const {error} = this.props;
-		console.info('LoginForm:render');
+		console.info('SignIn:render');
 
 		return (
 			<form className="form auth-form"

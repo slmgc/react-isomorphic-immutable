@@ -1,8 +1,5 @@
-const React = require('react');
-const {mixins} = require('core-decorators');
-const {branch} = require('baobab-react/decorators');
-const PureRenderMixin = require('react-addons-pure-render-mixin');
-const {Link} = require('react-router');
+const {React, ReactRouter, PureRenderMixin, mixins, branch} = require('app/client/vendor');
+const {Link} = ReactRouter;
 
 
 @branch({cursors: {

@@ -1,7 +1,4 @@
-const React = require('react');
-const {mixins} = require('core-decorators');
-const {branch} = require('baobab-react/decorators');
-const PureRenderMixin = require('react-addons-pure-render-mixin');
+const {React, PureRenderMixin, mixins, branch} = require('app/client/vendor');
 
 
 @branch({cursors: {
@@ -37,6 +34,7 @@ export default class extends React.Component {
 					<meta content={description} name="description" />
 					<link rel="stylesheet" href="/bundle.css" />
 					<script dangerouslySetInnerHTML={{__html: initState}} />
+					<script defer src="/vendor.js" />
 					<script defer src="/bundle.js" />
 				</head>
 				<body>{children}</body>
