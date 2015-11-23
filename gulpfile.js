@@ -3,6 +3,8 @@ const gulp = require('gulp');
 const stylus = require('gulp-stylus');
 const plumber = require('gulp-plumber');
 const livereload = require('gulp-livereload');
+const sourcemaps = require('gulp-sourcemaps');
+const autoprefixer = require('gulp-autoprefixer');
 
 
 gulp
@@ -11,14 +13,17 @@ gulp
 		gulp.watch('assets/**/*.styl', ['build:css']);
 	})
 
-	.task('build:css', () =>
-		gulp
+	.task('build:css', () => {
+		return gulp
 			.src('assets/bundle.styl')
 			.pipe(plumber())
+			.pipe(sourcemaps.init())
 			.pipe(stylus())
+			.pipe(autoprefixer())
+			.pipe(sourcemaps.write('.'))
 			.pipe(gulp.dest('public'))
 			.pipe(livereload())
-	)
+	})
 
 	.task('populate:db', () => {
 		const fs = require('fs');
