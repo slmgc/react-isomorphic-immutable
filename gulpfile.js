@@ -29,9 +29,9 @@ gulp
 
 	.task('populate:db', () => {
 		const fs = require('fs');
-		const md5 = require('md5');
 		const loki = require('lokijs');
 		const uuid = require('node-uuid');
+		const bcrypt = require('bcryptjs');
 
 		try {
 			fs.mkdirSync('db');
@@ -46,7 +46,7 @@ gulp
 			id: uuid.v4(),
 			username: 'John Doe',
 			email: 'john.doe@example.com',
-			password: md5('123')
+			password: bcrypt.hashSync('123', 10)
 		});
 
 		db.saveDatabase();

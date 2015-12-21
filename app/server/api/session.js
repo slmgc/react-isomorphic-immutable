@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const md5 = require('md5');
+const bcrypt = require('bcryptjs');
 const {users} = require('app/server/db');
 const {APIError, wrap} = require('app/server/errors');
 
@@ -9,13 +9,11 @@ module.exports = require('express')()
 		const {email, password} = req.body;
 
 		try {
-			const user = (await users).find({
-				$and: [{
-					email: email.toLowerCase()
-				}, {
-					password: md5(password)
-				}]
-			}).pop();
+			const user = (await users).findOne({email: email.toLowerCase()});
+			const isMatch = bcrypt.compareSync(password, user.password);
+			if (!isMatch) {
+				throw new Error();
+			}
 
 			req.session = {id: user.id};
 			res.json(_.pick(user, ['id', 'username']));
