@@ -2,10 +2,11 @@ React-Isomorphic-Immutable
 ==========================
 
 An isomorphic example with React 0.14, React Router 1.0, ES6/ES7, Browserify,
-PureRenderMixin, CSS live reloading, server-side rendering with data prefetching
-and immutable state with Baobab. It has a simple JSON REST API using LokiJS as a
-database, so you could play with it without much fuss. The database can be
-changed to a more production-ready one, like MongoDB, pretty easily.
+PureRenderMixin, CSS live reloading, cancelable async actions, server-side
+rendering with data prefetching and immutable state with Baobab. It has a simple
+JSON REST API using LokiJS as a database, so you could play with it without much
+fuss. The database can be changed to a more production-ready one, like MongoDB,
+pretty easily.
 
 ### Usage
 
@@ -28,6 +29,7 @@ password: 123
 * [React Router 1.0](https://github.com/rackt/react-router)
 * [Browserify](https://github.com/substack/node-browserify)
 * [Baobab](https://github.com/Yomguithereal/baobab)
+* [Bluebird](https://github.com/petkaantonov/bluebird)
 * [Stylus](https://github.com/stylus/stylus)
 * [Express](https://github.com/strongloop/express)
 * [LokiJS](https://github.com/techfort/LokiJS)
