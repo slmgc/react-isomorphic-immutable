@@ -1,4 +1,5 @@
 const Promise = require('bluebird');
+Promise.config({cancellation: true});
 
 
 export default {
@@ -7,6 +8,7 @@ export default {
 	createBrowserHistory: require('history/lib/createBrowserHistory'),
 	LinkedStateMixin: require('react-addons-linked-state-mixin'),
 	mixins: require('core-decorators').mixins,
+	Promise,
 	PureRenderMixin: require('react-addons-pure-render-mixin'),
 	React: require('react'),
 	ReactDOM: require('react-dom'),
