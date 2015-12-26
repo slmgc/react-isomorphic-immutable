@@ -1,4 +1,4 @@
-const {React, PureRenderMixin, LinkedStateMixin, mixins, branch} = require('app/client/vendor');
+const {React, PureRenderMixin, LinkedStateMixin, Promise, mixins, branch} = require('app/client/vendor');
 const actions = require('app/client/actions');
 
 
@@ -10,6 +10,7 @@ const actions = require('app/client/actions');
 export default class extends React.Component {
 	constructor(props, context) {
 		super(props, context);
+		this.action = Promise.resolve();
 		this.state = {
 			email: null,
 			password: null
@@ -18,12 +19,21 @@ export default class extends React.Component {
 
 	componentWillUnmount() {
 		actions.error.clear();
+		this.cancelAction();
+	}
+
+	cancelAction = () => {
+		if (this.action.isPending()) {
+			this.action.cancel();
+		}
 	}
 
 	onSubmit = (e) => {
 		e.preventDefault();
 		const {email, password} = this.state;
-		actions.user.signIn({email, password});
+
+		this.cancelAction();
+		this.action = actions.user.signInAsync({email, password});
 	}
 
 	render() {

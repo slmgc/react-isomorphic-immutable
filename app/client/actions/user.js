@@ -4,26 +4,41 @@ const actions = require('app/client/actions');
 
 
 export default {
-	signIn: async ({email, password}) => {
-		try {
-			const user = (await request
-				.put('/api/session')
-				.send({email, password})
-				.endAsync()).body;
-			tree.set('user', user);
-		} catch (e) {
-			actions.error.set(e);
-		};
+	signInAsync: ({email, password}) => {
+		const req = request
+			.put('/api/session')
+			.send({email, password});
+		const promise = req.endAsync();
+
+		return promise
+			.then((res) => {
+				tree.set('user', res.body);
+			})
+			.catch((e) => {
+				actions.error.set(e);
+			})
+			.finally(() => {
+				if (promise.isCancelled()) {
+					req.abort();
+				}
+			});
 	},
 
-	signOut: async () => {
-		try {
-			const user = (await request
-				.del('/api/session')
-				.endAsync()).body;
-			tree.set('user', user);
-		} catch (e) {
-			actions.error.set(e);
-		};
+	signOutAsync: () => {
+		const req = request.del('/api/session');
+		const promise = req.endAsync();
+
+		return promise
+			.then((res) => {
+				tree.set('user', res.body);
+			})
+			.catch((e) => {
+				actions.error.set(e);
+			})
+			.finally(() => {
+				if (promise.isCancelled()) {
+					req.abort();
+				}
+			});
 	}
 };
