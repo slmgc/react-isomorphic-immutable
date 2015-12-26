@@ -10,10 +10,6 @@ const actions = require('app/client/actions');
 }})
 @mixins(PureRenderMixin)
 export default class extends React.Component {
-	static contextTypes = {
-		tree: React.PropTypes.any
-	}
-
 	componentDidMount() {
 		this.onSetPage();
 	}
@@ -23,9 +19,8 @@ export default class extends React.Component {
 	}
 
 	onSetPage = () => {
-		const {tree} = this.context;
-		const user = tree.get('user');
-		actions.page.set(tree, {
+		const {user} = this.props;
+		actions.page.set({
 			title: user
 				? `Home - ${user.username}`
 				: 'Home'

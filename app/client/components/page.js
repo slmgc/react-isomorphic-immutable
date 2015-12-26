@@ -1,4 +1,4 @@
-const {React, PureRenderMixin, mixins, branch} = require('app/client/vendor');
+const {React, Baobab, PureRenderMixin, mixins, branch} = require('app/client/vendor');
 
 
 @branch({cursors: {
@@ -7,7 +7,7 @@ const {React, PureRenderMixin, mixins, branch} = require('app/client/vendor');
 @mixins(PureRenderMixin)
 export default class extends React.Component {
 	static contextTypes = {
-		tree: React.PropTypes.any
+		tree: React.PropTypes.instanceOf(Baobab)
 	}
 
 	constructor(props, context) {

@@ -1,11 +1,13 @@
-const {React, ReactDOM, ReactRouter, Baobab, Root, createBrowserHistory} = require('app/client/vendor');
+const {React, ReactDOM, ReactRouter, Root} = require('app/client/vendor');
+const tree = require('app/client/state');
 const routes = require('app/client/routes');
+const history = require('app/client/history');
 const {Router} = ReactRouter;
 
 
 ReactDOM.render(
-	<Root tree={new Baobab(window.__INIT_STATE__)}>
-		<Router history={createBrowserHistory()}>{routes}</Router>
+	<Root tree={tree}>
+		<Router history={history}>{routes}</Router>
 	</Root>,
 	document
 );

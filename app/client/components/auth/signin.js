@@ -8,10 +8,6 @@ const actions = require('app/client/actions');
 @mixins(PureRenderMixin)
 @mixins(LinkedStateMixin)
 export default class extends React.Component {
-	static contextTypes = {
-		tree: React.PropTypes.any
-	}
-
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
@@ -21,15 +17,13 @@ export default class extends React.Component {
 	}
 
 	componentWillUnmount() {
-		const {tree} = this.context;
-		actions.error.clear(tree);
+		actions.error.clear();
 	}
 
 	onSubmit = (e) => {
 		e.preventDefault();
-		const {tree} = this.context;
 		const {email, password} = this.state;
-		actions.user.signIn(tree, {email, password});
+		actions.user.signIn({email, password});
 	}
 
 	render() {

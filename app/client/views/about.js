@@ -5,13 +5,8 @@ const actions = require('app/client/actions');
 
 @mixins(PureRenderMixin)
 export default class extends React.Component {
-	static contextTypes = {
-		tree: React.PropTypes.any
-	}
-
 	componentDidMount() {
-		const {tree} = this.context;
-		actions.page.set(tree, {
+		actions.page.set({
 			title: 'About'
 		});
 	}

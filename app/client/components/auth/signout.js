@@ -4,13 +4,8 @@ const actions = require('app/client/actions');
 
 @mixins(PureRenderMixin)
 export default class extends React.Component {
-	static contextTypes = {
-		tree: React.PropTypes.any
-	}
-
 	onSignOut = () => {
-		const {tree} = this.context;
-		actions.user.signOut(tree);
+		actions.user.signOut();
 	}
 
 	render() {
