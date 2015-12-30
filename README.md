@@ -8,6 +8,10 @@ JSON REST API using LokiJS as a database, so you could play with it without much
 fuss. The database can be changed to a more production-ready one, like MongoDB,
 pretty easily.
 
+### Online Example
+
+You can check the app at [http://isomorphic-slmgc.rhcloud.com](http://isomorphic-slmgc.rhcloud.com)
+
 ### Usage
 
 ```
