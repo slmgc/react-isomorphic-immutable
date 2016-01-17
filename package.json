@@ -8,7 +8,7 @@
     "build:js": "npm run build:bundle & npm run build:vendor",
     "build:bundle": "$(npm bin)/browserify -x app/client/vendor app/client -o public/bundle.js",
     "build:vendor": "$(npm bin)/browserify -r app/client/vendor -o public/vendor.js",
-    "build:css": "$(npm bin)/stylus --include-css assets/bundle.styl -o public",
+    "build:css": "$(npm bin)/gulp build:css",
     "watch": "npm run watch:js & npm run watch:css",
     "watch:js": "npm run watch:bundle & npm run watch:vendor",
     "watch:bundle": "$(npm bin)/watchify -x app/client/vendor app/client -o public/bundle.js",
