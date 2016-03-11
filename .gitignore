@@ -1,4 +1,4 @@
-/node_modules/
-/public/
-/db/
-*.DS_Store
+/public
+node_modules/
+npm-debug.log*
+.DS_Store
