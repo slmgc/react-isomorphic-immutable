@@ -1,6 +1,6 @@
 const fs = require('fs')
-const path = require('path')
 const gulp = require('gulp')
+const path = require('path')
 
 
 function createSymlink(src, dest) {

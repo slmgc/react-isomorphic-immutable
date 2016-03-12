@@ -1,6 +1,6 @@
-const should = require('should')
 const {jsdom} = require('jsdom')
 const {renderToStaticMarkup} = require('react-dom/server')
+const should = require('should')
 const Page = require('client/components/page')
 
 
