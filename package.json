@@ -1,21 +1,19 @@
 {
   "private": true,
+  "main": "src/server",
   "scripts": {
+    "build": "NODE_ENV=production webpack",
     "each": "concurrently --raw",
-    "gulp": "gulp",
-    "test": "mocha",
     "watch:client": "webpack --watch",
-    "watch:server": "nodemon src/server",
-    "watch": "npm run each 'npm run watch:server' 'npm run watch:client'",
-    "start": "npm i && npm run gulp symlinks && npm run watch"
+    "watch:server": "nodemon",
+    "watch": "npm run each 'npm run watch:client' 'npm run watch:server'",
+    "start": "npm i && gulp symlinks && npm run watch",
+    "test": "mocha"
   },
   "dependencies": {
     "baobab": "^2.3.0",
     "baobab-react": "^1.0.0",
     "bluebird": "^3.3.0",
-    "body-parser": "^1.15.0",
-    "cookie-session": "^1.2.0",
-    "express": "^4.13.0",
     "lodash.clonedeep": "^4.3.0",
     "lodash.isequal": "^4.1.0",
     "react": "^15.0.0-rc.1",
@@ -32,7 +30,10 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.6.0",
     "babel-runtime": "^6.6.0",
+    "body-parser": "^1.15.0",
     "concurrently": "^2.0.0",
+    "cookie-session": "^1.2.0",
+    "express": "^4.13.0",
     "gulp": "^3.9.0",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
