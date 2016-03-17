@@ -1,3 +1,6 @@
+const actions = require('client/actions')
+
+
 module.exports = {
 	get(tree) {
 		const url = '/proxy/posts'
@@ -12,8 +15,12 @@ module.exports = {
 				const {body: posts} = res
 				cursorPosts.set('items', posts)
 			})
+			.catch((e) => {
+				actions.app.setError(e, tree)
+			})
 			.finally(() => {
 				cursorPosts.set('isLoading', false)
+
 				if (promise.isCancelled()) {
 					req.abort()
 				}

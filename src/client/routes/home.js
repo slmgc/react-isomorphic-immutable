@@ -8,7 +8,7 @@ module.exports = class HomeRoute extends React.Component {
 
 	componentWillMount() {
 		const {actions, tree} = this.context
-		actions.page.set({title: 'Home'}, tree)
+		actions.app.setPage({title: 'Home'}, tree)
 	}
 
 	render() {

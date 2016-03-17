@@ -1,6 +1,7 @@
 module.exports = {
 	getDefaultState() {
 		return {
+			error: {},
 			page: {
 				description: '',
 				lang: 'en',

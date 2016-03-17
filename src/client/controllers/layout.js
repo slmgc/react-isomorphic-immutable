@@ -5,6 +5,7 @@ const Layout = require('client/components/layout')
 module.exports = branch(class LayoutController extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.element,
+		error: React.PropTypes.object,
 		user: React.PropTypes.object.isRequired
 	}
 
@@ -14,5 +15,6 @@ module.exports = branch(class LayoutController extends React.Component {
 		)
 	}
 }, {cursors: {
+	error: ['error'],
 	user: ['user']
 }})
