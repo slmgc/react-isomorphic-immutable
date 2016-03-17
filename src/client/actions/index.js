@@ -1,5 +1,3 @@
-module.exports = {
-	page: require('client/actions/page'),
-	posts: require('client/actions/posts'),
-	user: require('client/actions/user')
-}
+export const app = require('client/actions/app')
+export const posts = require('client/actions/posts')
+export const user = require('client/actions/user')
