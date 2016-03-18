@@ -7,7 +7,11 @@ module.exports = class Nav extends React.Component {
 		const {error} = this.props
 
 		return (
-			<div>{error.message}</div>
+			error.status
+				? <div className="alert alert-danger"
+					role="alert">{error.message}</div>
+
+				: null
 		)
 	}
 }
