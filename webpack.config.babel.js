@@ -1,5 +1,6 @@
 'use strict'
 const dependencies = require('./package.json').dependencies
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const NpmInstallPlugin = require('npm-install-webpack-plugin')
 const webpack = require('webpack')
 const env = process.env.NODE_ENV
@@ -13,6 +14,7 @@ for (let key in dependencies) {
 }
 
 const plugins = [
+	new ExtractTextPlugin('bundle.css', {allChunks: true}),
 	new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
 ]
 
@@ -43,6 +45,9 @@ module.exports = {
 	},
 	module: {
 		loaders: [{
+			loader: ExtractTextPlugin.extract('css'),
+			test: /\.css$/
+    	}, {
 			exclude: /node_modules/,
 			loader: 'babel',
 			query: {
