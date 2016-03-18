@@ -1,0 +1,25 @@
+.spinner {
+	animation: spinner 1s infinite linear;
+	border: 10px solid rgba(0,0,0,0.1);
+	border-left-color: rgba(0,0,0,0.3);
+	margin: 60px auto;
+	position: relative;
+	transform: translateZ(0);
+}
+
+.spinner,
+.spinner:after {
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
