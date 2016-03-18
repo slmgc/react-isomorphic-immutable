@@ -15,8 +15,10 @@ module.exports = class Layout extends React.Component {
 		return (
 			<div>
 				<Nav {...user} />
-				<Notify error={error} />
-				{children}
+				<div className="container">
+					<Notify error={error} />
+					{children}
+				</div>
 			</div>
 		)
 	}
