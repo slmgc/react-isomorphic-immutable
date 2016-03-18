@@ -1,3 +1,6 @@
+require('client/assets/index.css')
+
+
 module.exports = class Page extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.element,
@@ -26,6 +29,7 @@ module.exports = class Page extends React.Component {
 					<meta charSet="utf-8" />
 					<title>{title}</title>
 					<meta name="description" content={description} />
+					<link rel="stylesheet" href="/bundle.css" />
 					<script dangerouslySetInnerHTML={{__html: initState}} />
 					<script defer src="/vendor.js" />
 					<script defer src="/app.js" />
