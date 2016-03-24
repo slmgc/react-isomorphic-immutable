@@ -4,7 +4,7 @@ const actions = require('client/actions')
 module.exports = {
 	get(tree) {
 		const url = '/proxy/posts'
-		const req = request.get(url)
+		const req = request.get(url).use(reqPrefix)
 		const promise = req.endAsync()
 		const cursorPosts = tree.select('posts')
 
