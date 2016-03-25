@@ -30,11 +30,13 @@ module.exports = class Page extends React.Component {
 					<title>{title}</title>
 					<meta name="description" content={description} />
 					<link rel="stylesheet" href="/bundle.css" />
-					<script dangerouslySetInnerHTML={{__html: initState}} />
-					<script defer src="/vendor.js" />
-					<script defer src="/app.js" />
 				</head>
-				<body>{children}</body>
+				<body>
+					{children}
+					<script dangerouslySetInnerHTML={{__html: initState}} />
+					<script src="/vendor.js" />
+					<script src="/app.js" />
+				</body>
 			</html>
 		)
 	}
