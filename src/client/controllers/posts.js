@@ -12,7 +12,11 @@ module.exports = branch(class PostsController extends React.Component {
 
 	componentDidMount() {
 		const {actions, tree} = this.context
-		actions.posts.get(tree)
+		const {items} = this.props.posts
+
+		if (!items.length) {
+			actions.posts.get(tree)
+		}
 	}
 
 	render() {
