@@ -1,4 +1,4 @@
-const ContextTypes = require('client/common/context-types')
+const {ContextTypes} = require('client/common/types')
 const LayoutController = require('client/controllers/layout')
 const PostsController = require('client/controllers/posts')
 

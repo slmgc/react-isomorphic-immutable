@@ -1,5 +1,5 @@
 const {branch} = require('baobab-react/higher-order')
-const ContextTypes = require('client/common/context-types')
+const {ContextTypes} = require('client/common/types')
 const Posts = require('client/components/posts')
 
 

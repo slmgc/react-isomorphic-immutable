@@ -1,4 +1,4 @@
-const PropTypes = require('client/common/prop-types')
+const {PropTypes} = require('client/common/types')
 
 
 module.exports = class ActionsController extends React.Component {
