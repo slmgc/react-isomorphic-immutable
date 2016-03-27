@@ -10,13 +10,27 @@ module.exports = branch(class PostsController extends React.Component {
 		posts: React.PropTypes.object.isRequired
 	}
 
+	constructor(props, context) {
+		super(props, context)
+		this.pendingActions = []
+	}
+
 	componentDidMount() {
 		const {actions, tree} = this.context
 		const {items} = this.props.posts
 
 		if (!items.length) {
-			actions.posts.get(tree)
+			this.pendingActions.push(actions.posts.get(tree))
 		}
+	}
+
+	componentWillUnmount() {
+		this.cancelPendingActions()
+	}
+
+	cancelPendingActions = () => {
+		this.pendingActions.forEach((action) =>
+			action.isPending() && action.cancel())
 	}
 
 	render() {
