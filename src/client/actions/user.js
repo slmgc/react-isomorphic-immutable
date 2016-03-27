@@ -1,7 +1,7 @@
 module.exports = {
 	identify({id}, tree) {
 		const url = `/proxy/users/${id}`
-		const req = request.get(url).use(reqPrefix)
+		const req = request.get(url).use(requestPrefix)
 		const promise = req.endAsync()
 
 		return promise
