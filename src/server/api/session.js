@@ -3,7 +3,6 @@ const config = require('server/config')
 
 module.exports = require('express')()
 	.use(require('cookie-session')({
-		name: 'session',
 		secret: config.SESSION_SECRET
 	}))
 

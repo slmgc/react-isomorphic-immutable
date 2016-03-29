@@ -2,7 +2,10 @@ const {branch} = require('baobab-react/higher-order')
 const Layout = require('client/components/layout')
 
 
-module.exports = branch(class LayoutController extends React.Component {
+module.exports = branch({
+	error: ['error'],
+	user: ['user']
+}, class LayoutController extends React.Component {
 	static propTypes = {
 		children: React.PropTypes.element,
 		error: React.PropTypes.object,
@@ -14,7 +17,4 @@ module.exports = branch(class LayoutController extends React.Component {
 			<Layout {...this.props} />
 		)
 	}
-}, {cursors: {
-	error: ['error'],
-	user: ['user']
-}})
+})

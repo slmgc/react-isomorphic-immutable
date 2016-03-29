@@ -4,14 +4,14 @@ const {render} = require('react-dom')
 const actions = require('client/actions')
 const routes = require('client/routes')
 const tree = new Baobab(window.__INIT_STATE__)
-const {Root} = require('baobab-react/wrappers')
+const {root} = require('baobab-react/higher-order')
 const ActionsController = require('client/controllers/actions')
 
 
-render(
-	<Root tree={tree}>
-		<ActionsController actions={actions}>
-			<Router history={browserHistory}>{routes}</Router>
-		</ActionsController>
-	</Root>, document
+const Root = root(tree, () =>
+	<ActionsController actions={actions}>
+		<Router history={browserHistory}>{routes}</Router>
+	</ActionsController>
 )
+
+render(<Root />, document)

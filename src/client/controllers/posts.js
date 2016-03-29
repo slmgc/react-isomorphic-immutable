@@ -3,7 +3,9 @@ const {ContextTypes} = require('client/common/types')
 const Posts = require('client/components/posts')
 
 
-module.exports = branch(class PostsController extends React.Component {
+module.exports = branch({
+	posts: ['posts']
+}, class PostsController extends React.Component {
 	static contextTypes = ContextTypes
 
 	static propTypes = {
@@ -40,6 +42,4 @@ module.exports = branch(class PostsController extends React.Component {
 			<Posts {...posts} />
 		)
 	}
-}, {cursors: {
-	posts: ['posts']
-}})
+})

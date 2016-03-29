@@ -3,18 +3,18 @@ const {match, RouterContext} = require('react-router')
 const {renderToString} = require('react-dom/server')
 const actions = require('client/actions')
 const routes = require('client/routes')
-const {Root} = require('baobab-react/wrappers')
+const {root} = require('baobab-react/higher-order')
 const ActionsController = require('client/controllers/actions')
 
 
 function render(tree, props) {
-	return renderToString(
-		<Root tree={tree}>
-			<ActionsController actions={actions}>
-				<RouterContext {...props} />
-			</ActionsController>
-		</Root>
+	const Root = root(tree, () =>
+		<ActionsController actions={actions}>
+			<RouterContext {...props} />
+		</ActionsController>
 	)
+
+	return renderToString(<Root />)
 }
 
 module.exports = require('express')()

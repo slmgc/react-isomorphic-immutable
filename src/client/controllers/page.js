@@ -3,7 +3,9 @@ const {ContextTypes} = require('client/common/types')
 const Page = require('client/components/page')
 
 
-module.exports = branch(class PageController extends React.Component {
+module.exports = branch({
+	page: ['page']
+}, class PageController extends React.Component {
 	static contextTypes = ContextTypes
 
 	static propTypes = {
@@ -28,6 +30,4 @@ module.exports = branch(class PageController extends React.Component {
 				{...page} />
 		)
 	}
-}, {cursors: {
-	page: ['page']
-}})
+})
