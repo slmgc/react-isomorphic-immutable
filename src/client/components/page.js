@@ -32,7 +32,7 @@ module.exports = class Page extends React.Component {
 					<link rel="stylesheet" href="/bundle.css" />
 				</head>
 				<body>
-					{children}
+					<div id="content">{children}</div>
 					<script dangerouslySetInnerHTML={{__html: initState}} />
 					<script src="/vendor.js" />
 					<script src="/app.js" />

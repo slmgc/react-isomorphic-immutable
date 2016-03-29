@@ -29,7 +29,8 @@ describe('Page component', () => {
 	const {defaultView: window} = document
 
 	it('is rendered', () => {
-		document.body.textContent.should.be.equal(content)
+		document.querySelector('#content')
+			.textContent.should.be.equal(content)
 	})
 
 	it('has a valid description', () => {

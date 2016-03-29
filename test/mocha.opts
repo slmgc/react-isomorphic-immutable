@@ -1,5 +1,6 @@
 test/components
 --compilers js:babel-register
+--require server/patch
 --require client/common/globals
 --require test/helpers/dom
 --reporter list
