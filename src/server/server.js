@@ -9,6 +9,5 @@ app.use(express.static('public', {maxAge: '1y'}))
 	.use(require('server/api'))
 	.use(require('server/prefetch'))
 	.use(require('server/render'))
-	.listen(port, () => {
-		console.info(`${env} server started at port ${port}`)
-	})
+	.listen(port, () =>
+		console.info(`${env} server started at port ${port}`))

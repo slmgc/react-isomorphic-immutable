@@ -1,3 +1,6 @@
+const {request, requestPrefix} = require('client/common/utils')
+
+
 module.exports = {
 	identify({id}, tree) {
 		const url = `/proxy/users/${id}`

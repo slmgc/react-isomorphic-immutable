@@ -1,10 +1,10 @@
 const isEqual = require('lodash.isequal')
 const {match, RouterContext} = require('react-router')
 const {renderToString} = require('react-dom/server')
-const actions = require('client/actions')
-const routes = require('client/routes')
 const {root} = require('baobab-react/higher-order')
+const actions = require('client/actions')
 const ActionsController = require('client/controllers/actions')
+const routes = require('client/routes')
 
 
 function render(tree, props) {

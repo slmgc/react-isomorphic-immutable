@@ -1,11 +1,12 @@
 require('client/common/globals')
+const Baobab = require('baobab')
 const {browserHistory, Router} = require('react-router')
 const {render} = require('react-dom')
+const {root} = require('baobab-react/higher-order')
 const actions = require('client/actions')
+const ActionsController = require('client/controllers/actions')
 const routes = require('client/routes')
 const tree = new Baobab(window.__INIT_STATE__)
-const {root} = require('baobab-react/higher-order')
-const ActionsController = require('client/controllers/actions')
 
 
 const Root = root(tree, () =>
