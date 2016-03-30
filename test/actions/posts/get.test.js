@@ -8,13 +8,14 @@ const {getDefaultState} = require('client/common/state')
 describe('actions.posts.get', function() {
 	this.timeout(10000)
 
+	let app, promise
 	const {posts} = getDefaultState()
 	const tree = new Baobab({posts})
 	const loadingCursor = tree.select('posts', 'isLoading')
 	const itemsCursor = tree.select('posts', 'items')
-	let promise
 
 	before(() => {
+		app = require('server/server')()
 		promise = actions.posts.get(tree)
 	})
 
@@ -29,5 +30,9 @@ describe('actions.posts.get', function() {
 
 	it('sets a loading state to false', () => {
 		loadingCursor.get().should.not.be.ok()
+	})
+
+	after((done) => {
+		app.close(done)
 	})
 })
