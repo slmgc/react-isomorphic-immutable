@@ -1,6 +1,3 @@
-const Baobab = require('baobab')
-
-
 const PropTypes = {
 	actions: React.PropTypes.objectOf(React.PropTypes.objectOf(React.PropTypes.func)),
 	elements: React.PropTypes.arrayOf(React.PropTypes.element),

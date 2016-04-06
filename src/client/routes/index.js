@@ -1,4 +1,4 @@
-const {Redirect, Route} = require('react-router')
+const {Redirect, Route} = ReactRouter
 
 
 module.exports = (

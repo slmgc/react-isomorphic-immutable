@@ -1,4 +1,3 @@
-const Baobab = require('baobab')
 const {jsdom} = require('jsdom')
 const should = require('should')
 const actions = require('client/actions')

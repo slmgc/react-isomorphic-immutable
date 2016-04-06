@@ -1,5 +1,4 @@
 const actions = require('client/actions')
-const Baobab = require('baobab')
 const {getDefaultState} = require('client/common/state')
 
 

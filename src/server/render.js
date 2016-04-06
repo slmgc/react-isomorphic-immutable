@@ -1,5 +1,5 @@
 const isEqual = require('lodash.isequal')
-const {match, RouterContext} = require('react-router')
+const {match, RouterContext} = ReactRouter
 const {renderToString} = require('react-dom/server')
 const {root} = require('baobab-react/higher-order')
 const actions = require('client/actions')

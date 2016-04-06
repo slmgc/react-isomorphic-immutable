@@ -1,7 +1,5 @@
 require('client/common/globals')
-const Baobab = require('baobab')
-const {browserHistory, Router} = require('react-router')
-const {render} = require('react-dom')
+const {browserHistory, Router} = ReactRouter
 const {root} = require('baobab-react/higher-order')
 const actions = require('client/actions')
 const ActionsController = require('client/controllers/actions')
@@ -15,4 +13,4 @@ const Root = root(tree, () =>
 	</ActionsController>
 )
 
-render(<Root />, document)
+ReactDOM.render(<Root />, document)
