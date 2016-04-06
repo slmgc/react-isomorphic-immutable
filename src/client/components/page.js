@@ -1,4 +1,4 @@
-require('client/assets/index.css')
+require('client/assets/page.css')
 
 
 module.exports = class Page extends React.Component {
@@ -29,6 +29,7 @@ module.exports = class Page extends React.Component {
 					<meta charSet="utf-8" />
 					<title>{title}</title>
 					<meta name="description" content={description} />
+					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<link rel="stylesheet" href="/bundle.css" />
 				</head>
 				<body>
