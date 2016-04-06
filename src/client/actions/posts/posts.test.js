@@ -32,6 +32,10 @@ describe('actions.posts.get', function() {
 	})
 
 	after((done) => {
-		app.close(done)
+		try {
+			app.close(done)
+		} catch (e) {
+			done()
+		}
 	})
 })
