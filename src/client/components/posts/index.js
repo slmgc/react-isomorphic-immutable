@@ -1,4 +1,4 @@
-require('client/assets/posts.css')
+require('./posts.css')
 const Spinner = require('client/components/spinner')
 
 

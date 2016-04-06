@@ -1,4 +1,4 @@
-require('client/assets/spinner.css')
+require('./spinner.css')
 
 
 module.exports = class Spinner extends React.Component {

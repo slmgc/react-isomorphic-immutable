@@ -13,5 +13,4 @@ module.exports = gulp
 	.task('symlinks', () => {
 		createSymlink('src/server', 'node_modules/server')
 		createSymlink('src/client', 'node_modules/client')
-		createSymlink('test', 'node_modules/test')
 	})

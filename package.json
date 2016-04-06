@@ -9,10 +9,10 @@
     "watch:server": "nodemon",
     "watch": "npm run each 'npm run watch:client' 'npm run watch:server'",
     "start": "npm i && gulp symlinks && npm run watch",
-	"test:all": "mocha",
-	"test:actions": "mocha test/actions",
-    "test:components": "mocha test/components",
-	"test": "npm run test:components"
+    "test:all": "mocha src/client/*/",
+    "test:actions": "mocha src/client/actions",
+    "test:components": "mocha src/client/components",
+    "test": "npm run test:components"
   },
   "dependencies": {
     "baobab": "^2.3.3",

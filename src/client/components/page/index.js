@@ -1,4 +1,5 @@
-require('client/assets/page.css')
+require('bootstrap/dist/css/bootstrap.css')
+require('./page.css')
 
 
 module.exports = class Page extends React.Component {

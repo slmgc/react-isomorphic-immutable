@@ -1,6 +1,6 @@
 --compilers js:babel-register
 --require client/common/globals
---require test/helpers/dom
 --require server/patch
+--require test
 --reporter list
 --recursive
