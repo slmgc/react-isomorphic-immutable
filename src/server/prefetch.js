@@ -11,6 +11,7 @@ module.exports = require('express')()
 		next()
 	})
 
+	// Prefetch user
 	.get('*', async (req, res, next) => {
 		const {id} = req.session
 
@@ -22,10 +23,10 @@ module.exports = require('express')()
 		next()
 	})
 
-	// HINT: uncomment to prefetch posts
-	// .get('*', async (req, res, next) => {
-	// 	const {tree} = res.locals
-	// 	await actions.posts.get(tree)
-	//
-	// 	next()
-	// })
+	// Prefetch posts
+	.get('/', async (req, res, next) => {
+		const {tree} = res.locals
+		await actions.posts.get(tree)
+
+		next()
+	})
