@@ -1,7 +1,3 @@
-.posts {
-	padding: 15px 0;
-}
-
 .posts__post + .posts__post {
 	padding-top: 15px;
 	border-top: 1px solid #eee;

@@ -5,7 +5,6 @@ const Notify = require('client/components/notify')
 
 module.exports = class Layout extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.element,
 		error: React.PropTypes.object,
 		user: React.PropTypes.object.isRequired
 	}
@@ -16,7 +15,7 @@ module.exports = class Layout extends React.Component {
 		return (
 			<div>
 				<Nav {...user} />
-				<div className="container">
+				<div className="layout container">
 					<Notify error={error} />
 					{children}
 				</div>

@@ -30,8 +30,9 @@ module.exports = require('express')()
 				res.redirect(301, location.pathname + location.search)
 			} else if (props) {
 				const {tree} = res.locals
+				const {pathname, search} = props.location
 				let nextState = tree.get()
-				const hash = objectHash(nextState)
+				const hash = objectHash([nextState, pathname, search])
 				let html = cache.get(hash)
 
 				if (!html) {

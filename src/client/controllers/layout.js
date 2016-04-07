@@ -7,7 +7,6 @@ module.exports = branch({
 	user: ['user']
 }, class LayoutController extends React.Component {
 	static propTypes = {
-		children: React.PropTypes.element,
 		error: React.PropTypes.object,
 		user: React.PropTypes.object.isRequired
 	}
