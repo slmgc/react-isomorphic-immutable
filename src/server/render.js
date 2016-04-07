@@ -35,11 +35,11 @@ module.exports = require('express')()
 				let html = cache.get(hash)
 
 				if (!html) {
-					let counter = 3
+					let count = 3
 					let isDone
 
 					do {
-						counter -= 1
+						count -= 1
 						state = nextState
 						html = render(tree, props)
 						nextState = tree.get()
