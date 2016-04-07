@@ -30,20 +30,21 @@ module.exports = require('express')()
 				res.redirect(301, location.pathname + location.search)
 			} else if (props) {
 				const {tree} = res.locals
-				let state, nextState = tree.get()
+				let nextState = tree.get()
 				const hash = objectHash(nextState)
 				let html = cache.get(hash)
 
 				if (!html) {
 					let count = 3
 					let isDone
+					let state
 
 					do {
 						count -= 1
 						state = nextState
 						html = render(tree, props)
 						nextState = tree.get()
-						isDone = !counter || isEqual(state, nextState)
+						isDone = !count || isEqual(state, nextState)
 					} while (!isDone)
 
 					cache.set(hash, html)
