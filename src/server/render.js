@@ -25,7 +25,7 @@ module.exports = require('express')()
 			} else if (props) {
 				const {tree} = res.locals
 				let counter = 3
-				let state, html
+				let html, state
 
 				do {
 					counter -= 1
