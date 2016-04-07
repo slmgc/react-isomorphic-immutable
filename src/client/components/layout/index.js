@@ -1,3 +1,4 @@
+require('./layout.css')
 const Nav = require('client/components/nav')
 const Notify = require('client/components/notify')
 

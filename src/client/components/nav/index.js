@@ -11,17 +11,17 @@ module.exports = class Nav extends React.Component {
 		const {id, name} = this.props
 
 		return (
-			<nav className="navbar navbar-full navbar-light bg-faded">
+			<nav className="navbar navbar-fixed-top navbar-dark bg-inverse">
 				<div className="container">
-					<div className="nav navbar-nav">
+					<div className="nav navbar-nav pull-xs-left">
 						<Link className="nav-item nav-link"
 							activeClassName="active"
 							onlyActiveOnIndex
 							to="/">Home</Link>
+					</div>
 
-						<div className="pull-xs-right">
-							<button className="btn btn-success">Sign In</button>
-						</div>
+					<div className="nav navbar-nav pull-xs-right">
+						<button className="btn btn-success">Sign In</button>
 					</div>
 				</div>
 			</nav>
